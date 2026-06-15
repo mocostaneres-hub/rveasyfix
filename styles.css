@@ -1,17 +1,17 @@
 :root {
-  --bg: #fff7df;
-  --surface: #fffef8;
-  --ink: #2b261d;
-  --muted: #6b6252;
-  --line: #eadbbf;
-  --red: #d45431;
-  --red-dark: #b94225;
-  --green: #2f795f;
-  --navy: #24536a;
-  --sky: #dff5ff;
-  --sun: #ffd66b;
-  --gold: #f4b400;
-  --shadow: 0 16px 34px rgba(119, 86, 32, 0.14);
+  --bg: #f5f1e8;
+  --surface: #fffdf8;
+  --ink: #202b2d;
+  --muted: #626a66;
+  --line: #ded2bf;
+  --accent: #b65f44;
+  --accent-dark: #8f4633;
+  --green: #3f705c;
+  --navy: #183d4a;
+  --sky: #e5f3f4;
+  --sun: #dfb857;
+  --gold: #d8a728;
+  --shadow: 0 18px 42px rgba(36, 45, 43, 0.12);
 }
 
 * {
@@ -21,10 +21,10 @@
 body {
   margin: 0;
   background:
-    radial-gradient(circle at top left, rgba(255, 214, 107, 0.35), transparent 34rem),
-    linear-gradient(180deg, #fffaf0 0%, var(--bg) 42%, #fff3cf 100%);
+    radial-gradient(circle at top left, rgba(229, 243, 244, 0.95), transparent 32rem),
+    linear-gradient(180deg, #fbf8f0 0%, var(--bg) 46%, #f3ead8 100%);
   color: var(--ink);
-  font-family: "Trebuchet MS", Verdana, Arial, sans-serif;
+  font-family: Manrope, Arial, Helvetica, sans-serif;
   font-size: 18px;
   line-height: 1.55;
 }
@@ -39,27 +39,36 @@ a {
 }
 
 .top-call {
-  align-items: center;
-  background: linear-gradient(90deg, var(--red-dark), var(--red));
+  background: var(--navy);
   color: #fff;
+  padding: 9px 18px;
+}
+
+.top-call-inner {
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 14px;
-  justify-content: center;
-  padding: 10px 16px;
-  text-align: center;
+  gap: 8px 18px;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1180px;
+}
+
+.top-call span,
+.top-call a {
+  font-size: 0.96rem;
+  line-height: 1.3;
 }
 
 .top-call span {
-  font-weight: 700;
+  color: rgba(255, 255, 255, 0.82);
+  font-weight: 650;
 }
 
 .top-call a {
-  font-size: clamp(1.15rem, 2.4vw, 1.65rem);
-  font-weight: 900;
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 4px;
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
 }
 
 .site-header {
@@ -68,7 +77,7 @@ a {
   border-bottom: 1px solid var(--line);
   display: flex;
   justify-content: space-between;
-  padding: 18px clamp(18px, 5vw, 64px);
+  padding: 20px clamp(18px, 5vw, 64px);
 }
 
 .brand {
@@ -77,10 +86,10 @@ a {
 }
 
 .brand-main {
-  color: var(--red-dark);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.85rem, 3.4vw, 3rem);
-  font-weight: 700;
+  color: var(--navy);
+  font-family: Fraunces, Georgia, "Times New Roman", serif;
+  font-size: clamp(1.9rem, 3.2vw, 2.85rem);
+  font-weight: 750;
   line-height: 1;
 }
 
@@ -107,7 +116,7 @@ a {
 
 .site-nav a:hover,
 .site-nav a.active {
-  background: #fff0c4;
+  background: var(--sky);
   border-color: var(--line);
   color: var(--ink);
 }
@@ -130,7 +139,10 @@ a {
 }
 
 .hero {
-  display: block;
+  align-items: stretch;
+  display: grid;
+  gap: 0;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 }
 
 .page-intro {
@@ -147,10 +159,12 @@ a {
 .services-list article,
 .callout,
 .service-area,
-.work-gallery {
+.work-gallery,
+.feature-panel,
+.services-panel {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: 16px;
   box-shadow: var(--shadow);
 }
 
@@ -160,24 +174,28 @@ a {
 }
 
 .hero-note {
+  border-bottom-left-radius: 0;
+  border-left: 0;
   border-top-left-radius: 0;
-  border-top-right-radius: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   box-shadow: var(--shadow);
 }
 
 .hero-photo {
-  background: #f1dbaa;
-  border-bottom: 0;
-  border-bottom-left-radius: 0;
+  background: #e8dfcf;
   border-bottom-right-radius: 0;
+  border-right: 0;
+  border-top-right-radius: 0;
   margin: 0;
-  min-height: clamp(260px, 42vw, 520px);
+  min-height: clamp(360px, 44vw, 560px);
   overflow: hidden;
   position: relative;
 }
 
 .service-hero-photo {
-  background: #f1dbaa;
+  background: #e8dfcf;
   margin: 0;
   min-height: 420px;
   overflow: hidden;
@@ -189,7 +207,7 @@ a {
   color: #786745;
   content: "RV service photo";
   display: flex;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: Fraunces, Georgia, "Times New Roman", serif;
   font-size: 1.2rem;
   font-weight: 700;
   inset: 0;
@@ -211,7 +229,7 @@ a {
   color: #786745;
   content: "RV repair photo";
   display: flex;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: Fraunces, Georgia, "Times New Roman", serif;
   font-size: 1.2rem;
   font-weight: 700;
   inset: 0;
@@ -234,27 +252,29 @@ a {
 }
 
 .kicker {
-  color: var(--red-dark);
+  color: var(--accent-dark);
   font-size: 0.82rem;
-  font-weight: 900;
-  letter-spacing: 0;
+  font-weight: 800;
+  letter-spacing: 0.04em;
   margin: 0 0 10px;
   text-transform: uppercase;
 }
 
 h1,
 h2 {
-  font-family: "Trebuchet MS", Verdana, Arial, sans-serif;
+  font-family: Fraunces, Georgia, "Times New Roman", serif;
   line-height: 1.08;
 }
 
 h1 {
-  font-size: clamp(2.25rem, 5.4vw, 4.75rem);
+  font-size: clamp(2.25rem, 4.4vw, 4.15rem);
+  font-weight: 750;
   margin: 0;
 }
 
 h2 {
   font-size: clamp(1.45rem, 2.6vw, 2.35rem);
+  font-weight: 650;
   margin: 0 0 12px;
 }
 
@@ -284,7 +304,7 @@ h2 {
 }
 
 .phone-button {
-  background: linear-gradient(180deg, #379170, var(--green));
+  background: linear-gradient(180deg, #477d68, var(--green));
   border-radius: 999px;
   color: #fff;
   display: inline-block;
@@ -310,7 +330,7 @@ h2 {
 }
 
 .google-rating {
-  background: #fff9e4;
+  background: #fff9e7;
   border-color: rgba(244, 180, 0, 0.7);
   box-shadow: 0 10px 24px rgba(244, 180, 0, 0.2);
   color: var(--ink);
@@ -333,7 +353,7 @@ h2 {
 }
 
 .rating-source {
-  color: var(--red-dark);
+  color: var(--accent-dark);
   font-size: 0.95rem;
   font-weight: 900;
   white-space: nowrap;
@@ -349,7 +369,7 @@ h2 {
 }
 
 .quick-card a {
-  color: var(--red);
+  color: var(--accent);
   font-weight: 900;
 }
 
@@ -360,7 +380,7 @@ h2 {
 }
 
 .notice-strip p {
-  font-family: "Trebuchet MS", Verdana, Arial, sans-serif;
+  font-family: Manrope, Arial, Helvetica, sans-serif;
   font-size: 1.24rem;
   font-weight: 700;
   margin: 0;
@@ -369,15 +389,85 @@ h2 {
 .section {
   margin: 0 auto;
   max-width: 1180px;
-  padding: 46px 20px;
+  padding: 34px 20px;
 }
 
 .section-heading {
-  margin-bottom: 22px;
+  margin-bottom: 24px;
 }
 
 .section-heading h2 {
   max-width: 720px;
+}
+
+.section-heading p:not(.kicker) {
+  color: var(--muted);
+  max-width: 760px;
+}
+
+.centered-heading {
+  text-align: center;
+}
+
+.centered-heading h2,
+.centered-heading p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.feature-panel,
+.services-panel {
+  padding: clamp(28px, 5vw, 48px);
+}
+
+.service-card-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 20px;
+}
+
+.service-card-grid article {
+  background: linear-gradient(180deg, #fff8ea, #fffdf8);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 22px;
+  text-align: center;
+}
+
+.service-card-grid h3 {
+  color: var(--navy);
+  font-size: 1.28rem;
+  margin: 0 0 8px;
+}
+
+.service-card-grid p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.panel-footer {
+  align-items: center;
+  background: linear-gradient(90deg, rgba(229, 243, 244, 0.9), rgba(255, 248, 234, 0.95));
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 16px 18px;
+}
+
+.panel-footer strong {
+  color: var(--navy);
+}
+
+.panel-footer a {
+  color: var(--accent-dark);
+  font-weight: 900;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 }
 
 .two-column,
@@ -415,12 +505,16 @@ h2 {
   grid-template-columns: repeat(3, 1fr);
 }
 
+.compact-photo-row {
+  margin-top: 18px;
+}
+
 .gallery-grid figure {
-  background: #fff0c4;
+  background: #eee4d4;
   border: 1px solid var(--line);
   border-radius: 8px;
   margin: 0;
-  min-height: 260px;
+  min-height: 250px;
   overflow: hidden;
   position: relative;
 }
@@ -430,7 +524,7 @@ h2 {
   color: #786745;
   content: "Add job photo";
   display: flex;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: Fraunces, Georgia, "Times New Roman", serif;
   font-weight: 700;
   inset: 0;
   justify-content: center;
@@ -465,27 +559,29 @@ h2 {
 .services-list {
   display: grid;
   gap: 18px;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .services-list article {
+  background: var(--surface);
   padding: 24px;
+  text-align: center;
 }
 
 .services-list article:nth-child(3n + 1) {
-  border-top: 5px solid var(--sun);
+  border-top: 4px solid var(--sun);
 }
 
 .services-list article:nth-child(3n + 2) {
-  border-top: 5px solid #9bdcc6;
+  border-top: 4px solid #9ccfc0;
 }
 
 .services-list article:nth-child(3n) {
-  border-top: 5px solid #ffb099;
+  border-top: 4px solid #dca08d;
 }
 
 .callout {
-  margin: 16px auto 56px;
+  margin: 4px auto 56px;
   max-width: 960px;
   padding: 28px;
   text-align: center;
@@ -493,7 +589,7 @@ h2 {
 
 .site-footer {
   align-items: center;
-  background: linear-gradient(90deg, var(--navy), #2f6a7c);
+  background: linear-gradient(90deg, #173844, var(--navy));
   color: #fff;
   display: flex;
   flex-wrap: wrap;
@@ -503,7 +599,7 @@ h2 {
 }
 
 .site-footer p {
-  font-family: "Trebuchet MS", Verdana, Arial, sans-serif;
+  font-family: Fraunces, Georgia, "Times New Roman", serif;
   font-size: 1.45rem;
   font-weight: 700;
   margin: 0;
@@ -535,8 +631,30 @@ h2 {
   .two-column,
   .service-area,
   .services-list,
-  .gallery-grid {
+  .gallery-grid,
+  .service-card-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero {
+    display: grid;
+  }
+
+  .hero-note,
+  .hero-photo {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+  }
+
+  .hero-note {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .hero-photo {
+    border-bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 
   .page-intro {
@@ -557,8 +675,10 @@ h2 {
     font-size: 16px;
   }
 
-  .top-call {
+  .top-call-inner {
     display: grid;
+    justify-content: center;
+    text-align: center;
   }
 
   .phone-button {
